@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: "${COMPOSE_PROJECT_NAME}_mysql"
+    volumes:
+      - '../.data/mysql:/var/lib/mysql:cached'
+    environment:
+      MYSQL_DATABASE: ${databaseName}
+      MYSQL_USER: ${databaseUser}
+      MYSQL_PASSWORD: ${databasePassword}
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    networks:
+      - front
+    ports:
+      - 3306:3306
+
+  redis:
+    image: 'bitnami/redis:5.0'
+    container_name: "${COMPOSE_PROJECT_NAME}_redis"
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      # - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PASSWORD=rootwdp
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6379:6379'
+    volumes:
+      - '../.data/redis:/bitnami/redis/data:cached'
