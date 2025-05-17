@@ -1,31 +1,53 @@
-version: "2"
-
 services:
-  mysql:
-    image: mysql:5.7
-    container_name: "${COMPOSE_PROJECT_NAME}_mysql"
+  mariadb:
+    image: mariadb:10.11.11
+    container_name: "${COMPOSE_PROJECT_NAME}_mariadb"
     volumes:
-      - '../.data/mysql:/var/lib/mysql:cached'
+      - ${DB_DATA_DIR}/${COMPOSE_PROJECT_NAME}_mariadb:/var/lib/mysql:z
     environment:
-      MYSQL_DATABASE: ${databaseName}
-      MYSQL_USER: ${databaseUser}
-      MYSQL_PASSWORD: ${databasePassword}
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${COMPOSE_PROJECT_NAME}
+      MYSQL_USER: ${COMPOSE_PROJECT_NAME}
+      MYSQL_PASSWORD: ${COMPOSE_PROJECT_NAME}
+      MYSQL_ROOT_PASSWORD: ${COMPOSE_PROJECT_NAME}
     restart: always
     networks:
       - front
     ports:
-      - 3306:3306
+      - "3306:3306"
 
-  redis:
-    image: 'bitnami/redis:5.0'
-    container_name: "${COMPOSE_PROJECT_NAME}_redis"
-    environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      # - ALLOW_EMPTY_PASSWORD=yes
-      - REDIS_PASSWORD=rootwdp
-      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+  # postgres:
+  #   build: ./PostgreSQL/
+  #   container_name: "${COMPOSE_PROJECT_NAME}_postgres"  
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: ${databaseUser}
+  #     POSTGRES_PASSWORD: ${databasePassword}
+  #   volumes:
+  #      - '../.data/postgres:/var/lib/postgresql/data:cached'
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - front
+
+  # redis:
+  #   image: 'bitnami/redis:5.0'
+  #   container_name: "${COMPOSE_PROJECT_NAME}_redis"
+  #   environment:
+  #     # ALLOW_EMPTY_PASSWORD is recommended only for development.
+  #     # - ALLOW_EMPTY_PASSWORD=yes
+  #     - REDIS_PASSWORD=rootwdp
+  #     - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+  #   ports:
+  #     - '6379:6379'
+  #   volumes:
+  #     - '../.data/redis:/bitnami/redis/data:cached'
+  
+  mailhog:
+    image: skilldlabs/mailhog
+    container_name: "${COMPOSE_PROJECT_NAME}_mail"
+    restart: always
+    networks:
+      - front
     ports:
-      - '6379:6379'
-    volumes:
-      - '../.data/redis:/bitnami/redis/data:cached'
+      - "8025:8025"
+      - "1025:1025"

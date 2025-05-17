@@ -32,28 +32,19 @@
 ##### Download repository:
 
 ```
-git clone git@github.com:MayCMF/docker.git
+git clone git@github.com:MayCMF/docker.git <YOUR_FOLDER>
 ```
 
 ##### Go to downloaded folder:
 
 ```
-cd docker
+cd <YOUR_FOLDER>
 ```
 
 ##### Configure your .env file:
 
 ```
-COMPOSE_FILE=./docker/docker-compose.yml:./docker/docker-compose.override.yml
-COMPOSE_PROJECT_NAME=maycmf
-databaseName=maycmf
-databasePassword=maycmf
-databaseUser=maycmf
-databaseRootPassword=rootwdp
-
-IPRANGE=172.10.10.0/16
-CUID=1000
-CGID=1000
+cp .env.default .env
 
 ```
 

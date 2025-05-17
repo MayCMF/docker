@@ -10,3 +10,17 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+.data
+.cache
+*.directory
+*.DS_Store
+# .env
+docker/.air-temp
+*xdebug.log
+
+sandbox/
+goapp/
+
+.sass-cache/
+node_modules
