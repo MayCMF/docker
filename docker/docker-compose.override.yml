@@ -42,6 +42,22 @@ services:
   #   volumes:
   #     - '../.data/redis:/bitnami/redis/data:cached'
   
+  # nodejs:
+  #   image: ${IMAGE_NODEJS}
+  #   container_name: "${COMPOSE_PROJECT_NAME}_nodejs"
+  #   working_dir: /app
+  #   volumes:
+  #     - ../${CODE_NODE_DIR}:/app
+  #   command: ["npm", "start"]
+  #   environment:
+  #     - NODE_ENV=development
+  #     # - NODE_OPTIONS=--openssl-legacy-provider
+  #   tty: true
+  #   networks:
+  #     - front
+  #   ports:
+  #     - "3000:3000"
+
   mailhog:
     image: skilldlabs/mailhog
     container_name: "${COMPOSE_PROJECT_NAME}_mail"

@@ -5,12 +5,12 @@
 
 ## Containers included:
 
-- Mailhog (Custom from Skilldlabs Company) [Mailhog](https://hub.docker.com/r/skilldlabs/mailhog)
-- MySQL 5.7 [mysql:5.7](https://hub.docker.com/_/mysql)
-- Redis 5.0 [bitnami/redis:5.0](https://hub.docker.com/r/bitnami/redis/)
-- Postgres [latest](https://hub.docker.com/_/postgres)
 - Golang [latest](https://hub.docker.com/_/golang)
-- NodeJS: 8.9.3
+- MariaDB 10.11.11 [mariadb:10.11.11](https://hub.docker.com/_/mariadb)
+- Postgres [latest](https://hub.docker.com/_/postgres)
+- Mailhog (Custom from Skilldlabs Company) [Mailhog](https://hub.docker.com/r/skilldlabs/mailhog)
+- Redis 5.0 [bitnami/redis:5.0](https://hub.docker.com/r/bitnami/redis/)
+- NodeJS: [node:22.2.0] (https://hub.docker.com/_/node)
 
 ------
 
