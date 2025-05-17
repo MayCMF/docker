@@ -5,12 +5,12 @@
 
 ## Containers included:
 
-- Golang [latest](https://hub.docker.com/_/golang)
-- MariaDB 10.11.11 [mariadb:10.11.11](https://hub.docker.com/_/mariadb)
+- Golang [golang:1.24-alpine](https://hub.docker.com/_/golang)
+- MariaDB [mariadb:10.11.11](https://hub.docker.com/_/mariadb)
 - Postgres [latest](https://hub.docker.com/_/postgres)
 - Mailhog (Custom from Skilldlabs Company) [Mailhog](https://hub.docker.com/r/skilldlabs/mailhog)
-- Redis 5.0 [bitnami/redis:5.0](https://hub.docker.com/r/bitnami/redis/)
-- NodeJS: [node:22.2.0] (https://hub.docker.com/_/node)
+- Redis [bitnami/redis:5.0](https://hub.docker.com/r/bitnami/redis/)
+- NodeJS [node:22.2.0](https://hub.docker.com/_/node)
 
 ------
 
